@@ -1,0 +1,17 @@
+name: Docker
+on:
+ push:
+   branches:
+     main
+
+jobs:
+  build-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build
+      run: |
+        sudo docker build -t applic ./application
+        sudo docker run applic
